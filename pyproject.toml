@@ -1,0 +1,25 @@
+[project]
+name = "Project1"
+requires-python = ">=3.12"
+
+
+version = "0.0.1"
+[tool.poetry]
+name = "project1"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+beautifulsoup4 = "^4.13.3"
+requests = "^2.32.3"
+
+# Fix outdated component
+#django = "5.1.6"
+django = "5.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

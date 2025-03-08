@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AAA</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<header><h1>AAA</h1>
+    {% if user.is_anonymous %}
+        <a href="/login/">Login</a>
+    {% else %}
+        <form action="/logout/" method="POST">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% endif %}
+</header>
+{% if user.is_authenticated %}
+    <form method="post" action="/send">
+        {% csrf_token %}
+        <input type="text" name="data">
+        <button type="submit">Send</button>
+    </form>
+{% endif %}
+<div class="msgList">
+    {% for msg in msgs %}
+        <div class="msgItem">
+            <div>
+                <b>{{ msg.user.username }}</b>
+                {{ msg.data | urlize }}
+            </div>
+            {% if msg.user_id == user.id %}
+                <form action="/delete" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value={{ msg.id }}>
+                    <button type="submit">Delete</button>
+                </form>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

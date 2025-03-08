@@ -1,0 +1,35 @@
+
+body {
+    header {
+        position: sticky;
+        top: 0;
+        background-color: initial;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .msgList {
+        border: 1px black solid;
+
+        .msgItem {
+            border: 1px black solid;
+            padding: 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: baseline;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                overflow: auto;
+            }
+        }
+    }
+
+    .password_error {
+        color: #d00000;
+    }
+}
