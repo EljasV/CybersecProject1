@@ -16,7 +16,7 @@ beautifulsoup4 = "^4.13.3"
 requests = "^2.32.3"
 
 # Fix outdated component
-#django = "5.1.6"
+#django = "^5.1.7"
 django = "5.1"
 
 
